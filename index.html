@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoBullyEsperanza</title>
+    <link rel="icon" href=
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN3jKpint4swL6RgGTjNOas2Uu1MZJ_e_Fvw&s"
+        type="image/x-icon" />
+    <link rel="icon" type="png" href="smpn-1-prambanan-klaten.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="index.js"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed w-full top-0 z-50 bg-transparent transition-all duration-300"
+    >
+      <div
+        class="container mx-auto flex justify-between items-center py-5 px-5"
+      >
+        <a href="#" class="text-white text-2xl font-bold">SMPN 1 PRAMBANAN</a>
+        <div
+          id="menu-toggle"
+          class="text-white text-2xl md:hidden cursor-pointer"
+        >
+          <i class="ph ph-list"></i>
+        </div>
+        
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-blue-600 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+          <div class="flex justify-end p-4">
+            <button id="close-menu" class="text-white text-2xl">
+              <i class="ph ph-x"></i>
+            </button>
+          </div>
+          <ul class="flex flex-col space-y-4 p-4 text-white font-semibold">
+            <li><a href="#home" class="block py-2 hover:bg-blue-700 px-4 rounded">Beranda</a></li>
+            <li><a href="#about" class="block py-2 hover:bg-blue-700 px-4 rounded">Profile</a></li>
+            <li><a href="#education" class="block py-2 hover:bg-blue-700 px-4 rounded">Akademik</a></li>
+            <li><a href="#consultation" class="block py-2 hover:bg-blue-700 px-4 rounded">Kesiswaan</a></li>
+            <li><a href="#testimonials" class="block py-2 hover:bg-blue-700 px-4 rounded">Berita</a></li>
+            <li><a href="#rules" class="block py-2 hover:bg-blue-700 px-4 rounded">Galeri</a></li>
+            <li><a href="#resources" class="block py-2 hover:bg-blue-700 px-4 rounded">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul
+          id="menu"
+          class="hidden md:flex md:space-x-6 text-white font-semibold"
+        >
+          <li><a href="#home" class="hover:text-gray-300">Beranda</a></li>
+          <li><a href="#about" class="hover:text-gray-300">Profile</a></li>
+          <li><a href="#education" class="hover:text-gray-300">Akademik</a></li>
+          <li><a href="#consultation" class="hover:text-gray-300">Kesiswaan</a></li>
+          <li><a href="#testimonials" class="hover:text-gray-300">Berita</a></li>
+          <li><a href="#rules" class="hover:text-gray-300">Galeri</a></li>
+          <li><a href="#resources" class="hover:text-gray-300">Kontak</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMenu = document.getElementById('close-menu');
+
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('translate-x-full');
+      });
+
+      closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          mobileMenu.classList.add('translate-x-full');
+        }
+      });
+    </script>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden"
+    >
+      <div
+        class="relative w-full h-screen flex flex-col items-center justify-center text-white text-center px-6"
+      >
+        <!-- Background SVG Paths -->
+        <div class="absolute inset-0 pointer-events-none">
+          <svg class="w-full h-full" viewBox="0 0 696 316" fill="none">
+            <title>Background Paths</title>
+            <g stroke="white" stroke-width="1" stroke-opacity="0.1">
+              <path
+                d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875"
+                class="animate-[movePaths_10s_linear_infinite]"
+              />
+              <path
+                d="M-370 -183C-370 -183 -302 210 162 337C626 464 694 869 694 869"
+                class="animate-[movePaths_12s_linear_infinite]"
+              />
+              <path
+                d="M-360 -177C-360 -177 -292 204 172 331C636 458 704 863 704 863"
+                class="animate-[movePaths_14s_linear_infinite]"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Hero Content -->
+
+        <img
+          src="assets/smpn-1-prambanan-klaten.png"
+          alt="Stop Bullying"
+          class="w-72 transform transition-all duration-300 hover:scale-110 hover:-translate-y-2 mb-12"
+        />
+
+        <div class="relative z-10 max-w-3xl space-y-8">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold fade-in tracking-tight"
+          >
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
+            >
+              Bersama Membangun Masa Depan <i class="ph-fill ph-sparkle"></i>
+            </span>
+          </h1>
+          <p class="mt-4 text-lg fade-in delay-200">
+             <b class="text-2xl">#SekolahRamahAnak</b>
+          </p>
+
+          <!-- Call-to-Action Button -->
+          <div class="mt-6 fade-in delay-400">
+            <a
+              href="#about"
+              class="inline-block bg-white text-blue-700 font-semibold px-8 py-4 rounded-full shadow-md transition-all duration-300 btn-hover hover:bg-blue-500 hover:text-white"
+            >
+              <span> Mari kita mulai </span>
+              <i class="ph-fill ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+      <div
+        class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <!-- Gambar -->
+        <div class="flex justify-center">
+          <img
+            src="assets/Teaching.gif"
+            alt="Ilustrasi Bullying"
+            class="max-w-full"
+          />
+        </div>
+
+        <!-- Konten -->
+        <div class="text-center md:text-left px-6 animate-fadeIn">
+          <h2 class="text-4xl font-extrabold text-blue-500">
+            Profil <span class="text-blue-700">SMPN 1 PRAMBANAN</span>
+          </h2>
+          <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+            <span class="font-semibold text-gray-600">SMP Negeri 1 Prambanan Klaten merupakan salah satu sekolah menengah pertama unggulan di Kabupaten Klaten yang berkomitmen dalam mencetak generasi cerdas, berkarakter, dan berwawasan global. Dengan lingkungan belajar yang aman dan kondusif, sekolah ini terus berupaya memberikan layanan pendidikan terbaik melalui pembelajaran yang inovatif dan berorientasi pada nilai-nilai luhur bangsa.
+Didukung oleh tenaga pendidik profesional dan fasilitas yang memadai, SMPN 1 Prambanan menjadi tempat bagi siswa untuk tumbuh, mengembangkan potensi diri, serta meraih prestasi baik di bidang akademik maupun non-akademik.
+          </p>
+
+          <a
+            href="https://id.m.wikipedia.org/wiki/Perundungan"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105"
+          >
+            <i class="ph ph-book-open text-xl mr-2"></i> Pelajari Lebih Lanjut
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-gray-100">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-blue-500">
+          Edukasi tentang <span class="text-blue-700">Bullying</span>
+        </h2>
+        <p class="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+          Kenali jenis-jenis bullying dan dampaknya terhadap korban. Edukasi ini
+          membantu memahami betapa pentingnya pencegahan dan dukungan bagi
+          korban bullying.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-12">
+          <!-- Jenis-Jenis Bullying -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 hover:shadow-xl transition duration-300"
+          >
+            <h3
+              class="text-2xl font-semibold text-blue-600 flex items-center mb-8"
+            >
+              <i class="ph ph-list-dashes text-2xl mr-3"></i> Jenis-Jenis
+              Bullying
+            </h3>
+            <ul class="mt-5 text-gray-700 text-lg space-y-4">
+              <li class="flex items-center">
+                <i
+                  class="ph ph-chat-circle-dots text-xl text-blue-600 mr-2"
+                ></i>
+                <span class="font-semibold text-blue-600">Verbal</span> -
+                Menghina, mengejek, memberi julukan buruk.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-hand-fist text-xl text-blue-600 mr-2"></i>
+                <span class="font-semibold text-blue-600">Fisik</span> -
+                Memukul, mendorong, menendang.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-heart-break text-xl text-blue-600 mr-2"></i>
+                <span class="font-semibold text-blue-600">Emosional</span> -
+                Mengisolasi seseorang dari lingkungan sosial.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-devices text-xl text-blue-600 mr-2"></i>
+                <span class="font-semibold text-blue-600">Cyberbullying</span> -
+                Mengintimidasi melalui media sosial.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-warning text-xl text-blue-600 mr-2"></i>
+                <span class="font-semibold text-blue-600"
+                  >Pelecehan Seksual</span
+                >
+                - Perilaku tidak pantas yang melecehkan korban.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dampak Bullying -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-500 hover:shadow-xl transition duration-300"
+          >
+            <h3
+              class="text-2xl font-semibold text-red-600 flex items-center mb-8"
+            >
+              <i class="ph ph-brain text-2xl mr-3"></i> Dampak Bullying
+            </h3>
+            <p class="mt-5 text-gray-700 text-lg leading-relaxed">
+              Bullying berdampak serius pada kesehatan mental dan fisik korban,
+              menyebabkan:
+            </p>
+            <ul class="mt-4 text-gray-700 text-lg space-y-4">
+              <li class="flex items-center">
+                <i class="ph ph-smiley-sad text-xl text-red-600 mr-2"></i> Stres
+                dan kecemasan berlebih.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-user-minus text-xl text-red-600 mr-2"></i> Rasa
+                rendah diri dan kehilangan percaya diri.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-heart-break text-xl text-red-600 mr-2"></i>
+                Depresi dan isolasi sosial.
+              </li>
+              <li class="flex items-center">
+                <i class="ph ph-hospital text-xl text-red-600 mr-2"></i>
+                Gangguan kesehatan fisik akibat stres berat.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Section: Testimoni -->
+    <section id="testimonials" class="py-16 bg-gray-100">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-blue-700">
+          Kisah Inspiratif
+        </h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+          video edukasi ini ditujukan untuk mengatasi permasalahan bullying
+        </p>
+
+        <!-- YouTube Video Section -->
+        <div class="max-w-3xl mx-auto mt-8 mb-12">
+          <div class="relative pb-[56.25%] h-0">
+              <iframe id="testimonialVideo" 
+                  class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                  src=""
+                  title="Testimonial Video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+              </iframe>
+          </div>
+      </div>
+
+        <!-- Testimonial Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <p class="text-gray-700 italic">
+              "Saya pernah menjadi korban bullying, tetapi dengan bantuan guru
+              dan teman-teman, saya berhasil bangkit dan lebih percaya diri."
+            </p>
+            <h4 class="mt-4 font-semibold text-blue-600">- Rifky,Siswa</h4>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <p class="text-gray-700 italic">
+              "Mendapat dukungan dari keluarga dan sekolah sangat membantu saya
+              mengatasi trauma akibat bullying."
+            </p>
+            <h4 class="mt-4 font-semibold text-blue-600">- Zacky, Siswa</h4>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <p class="text-gray-700 italic">
+              "Saya dulu pelaku bullying tanpa sadar. Setelah menyadari
+              dampaknya, saya berubah."
+            </p>
+            <h4 class="mt-4 font-semibold text-blue-600">- Budi, Siswa</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Consultation Section -->
+    <section id="consultation" class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-blue-700 text-center mb-8">
+          Kirim Pesan
+        </h2>
+
+        <div
+          class="flex flex-col md:flex-row items-center justify-between md:items-start gap-10"
+        >
+          <!-- Information Section -->
+          <div class="max-w-3xl text-center md:text-left">
+            <p class="text-lg text-gray-700 leading-relaxed">
+              Jika Anda mengalami atau menyaksikan kasus bullying, jangan ragu
+              untuk melaporkannya. Kami siap membantu dan memberikan solusi
+              terbaik untuk Anda.
+            </p>
+            <!-- Teks tambahan hanya muncul di layar lebih besar -->
+            <p
+              class="hidden md:block text-lg text-gray-700 leading-relaxed mt-3"
+            >
+              Tim kami akan menjaga kerahasiaan laporan Anda dan memberikan
+              dukungan yang dibutuhkan. Jangan biarkan bullying terus terjadi -
+              bersama kita bisa menciptakan lingkungan yang lebih aman dan
+              nyaman bagi semua orang.
+            </p>
+          </div>
+
+          <!-- Consultation Form -->
+          <form
+            id="consultation-form"
+            class="bg-white p-8 rounded-lg shadow-lg border max-w-lg w-full"
+            onsubmit="sendEmail(event)"
+          >
+            <!-- Nama -->
+            <div class="mb-4">
+              <label for="nama" class="block text-gray-700 font-semibold mb-2"
+                >Nama Anda</label
+              >
+              <input
+                type="text"
+                id="to_name"
+                placeholder="Masukkan nama Anda"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                name="to_name"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-semibold mb-2"
+                >Email Anda</label
+              >
+              <input
+                type="email"
+                id="from_name"
+                name="from_name"
+                placeholder="Masukkan email Anda"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                required
+              />
+            </div>
+
+            <!-- Pesan -->
+            <div class="mb-4">
+              <label for="pesan" class="block text-gray-700 font-semibold mb-2"
+                >Pesan Anda</label
+              >
+              <textarea
+                id="message"
+                rows="4"
+                name="message"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-3 rounded-md text-lg font-semibold shadow-md hover:bg-blue-500 transition duration-300 hover:shadow-lg"
+            >
+              Kirim Laporan
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Sumber Bantuan -->
+    <section id="resources" class="py-16 bg-gray-100">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-blue-700">
+          Sumber Bantuan dan Kontak Penting
+        </h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Jika Anda mengalami atau menyaksikan kasus bullying, jangan ragu untuk
+          mencari bantuan.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <!-- Resource 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <h3 class="text-xl font-semibold text-blue-600">
+              📞 TIM PPPSK
+            </h3>
+            <p class="text-gray-700 mt-2">
+              Bicarakan masalah Anda dengan konselor sekolah untuk mendapatkan
+              solusi terbaik.
+            </p>
+            <div class="text-right">
+              <a
+                href="https://wa.me/+6285712561496"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-block bg-emerald-500 text-white px-6 py-2 rounded-md hover:bg-emerald-400 transition duration-300"
+              >
+                Hubungi via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Resource 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <h3 class="text-xl font-semibold text-blue-600">📞 KPAI</h3>
+            <p class="text-gray-700 mt-2">
+              Komisi Perlindungan Anak Indonesia (KPAI) siap mengedukasi tentang
+              bullying.
+            </p>
+            <div class="text-right">
+              <a
+                href="https://www.kpai.go.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-500 transition duration-300"
+              >
+                Kunjungi Website
+              </a>
+            </div>
+          </div>
+
+          <!-- Resource 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <h3 class="text-xl font-semibold text-blue-600">
+              📞 Hotline Anti-Bullying
+            </h3>
+            <p class="text-gray-700 mt-2">
+              Hubungi layanan darurat atau psikolog jika Anda membutuhkan
+              bantuan segera.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fixed bottom-4 left-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 hover:scale-105 transition-transform duration-300 z-50">
+      <i class="ph ph-users text-sm md:text-xl"></i>
+      <div class="flex items-center">
+        <span id="visitor-count" class="text-base md:text-xl font-bold mr-1">0</span>
+        <span class="text-xs md:text-sm">Pengunjung</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      id="contact"
+      class="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-12"
+    >
+      <div class="container mx-auto px-6 md:px-12">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- About Section -->
+          <div class="footer-section">
+            <h3 class="text-2xl font-semibold text-yellow-300">Tentang</h3>
+            <p id="tentang" class="mt-4 text-gray-200 leading-relaxed">
+              NoBullyEsperanza adalah platform digital yang didedikasikan untuk
+              menciptakan lingkungan yang aman dan bebas dari perundungan.
+            </p>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="footer-section">
+            <h3 class="text-2xl font-semibold text-yellow-300">Kontak</h3>
+            <ul class="mt-4 space-y-3 text-gray-200">
+              <li>
+                🏠 <strong>Alamat:</strong> Jalan Raya Solo-Yogya, Klaten,
+                Tegalsanggrahan, Kec. Prambanan, Kabupaten Klaten, Jawa Tengah
+                57454
+              </li>
+              <li>📍 <strong>Kode Pos:</strong> 57454</li>
+              <li>
+                📌
+                <a
+                  href="https://www.google.com/maps/place/SMPN+1+Prambanan/@-7.754315,110.511848,18z/data=!4m6!3m5!1s0x2e7a5ad67f58f23b:0xd61bd9de4ad30fdd!8m2!3d-7.754315!4d110.5131355!16s%2Fg%2F1hm488zw2?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D"
+                  class="text-yellow-300 font-medium hover:text-yellow-400 transition duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lihat di Google Maps
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div
+          class="mt-12 text-center text-gray-200 text-sm border-t border-white/20 pt-6"
+        >
+          © 2025 NoBullyEsperanza. Semua Hak Dilindungi.
+        </div>
+      </div>
+    </footer>
+
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    window.AgentInitializer.init({
+      agentRenderURL: "https://agent.jotform.com/0195195f9e0f7f4fb5d2d6961d5e95c61d67",
+      rootId: "JotformAgent-0195195f9e0f7f4fb5d2d6961d5e95c61d67",
+      formID: "0195195f9e0f7f4fb5d2d6961d5e95c61d67",
+      queryParams: ["skipWelcome=1", "maximizable=1"],
+      domain: "https://www.jotform.com",
+      isDraggable: false,
+      background: "linear-gradient(180deg, #FFDF79 0%, #FFDF79 100%)",
+      buttonBackgroundColor: "#FB7041",
+      buttonIconColor: "#FFF",
+      variant: false,
+      customizations: {
+        "greeting": "Yes",
+        "greetingMessage": "halo, apa yang bisa saya bantu?",
+        "pulse": "Yes",
+        "position": "right",
+        "autoOpenChatIn": "0"
+      },
+      isVoice: false,
+    });
+  });
+</script>
+
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.3.1/firebase-database-compat.js"></script>
+
+    <script type="module">
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyApyhfxBmkyOLg0lxCSyRSEA-xzDpdM188",
+        authDomain: "nobullyesperanza.firebaseapp.com",
+        projectId: "nobullyesperanza",
+        storageBucket: "nobullyesperanza.firebasestorage.app",
+        messagingSenderId: "725447132227",
+        appId: "1:725447132227:web:6d5e3149e0c21ab93fc0f6",
+        databaseURL: "https://nobullyesperanza-default-rtdb.asia-southeast1.firebasedatabase.app"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const database = firebase.database();
+
+      // Initialize visitor counter
+      function initializeVisitorCounter() {
+        const visitorCountRef = database.ref('visitorCount');
+        
+        // Increment visitor count when someone connects
+        visitorCountRef.transaction((currentCount) => {
+          return (currentCount || 0) + 1;
+        });
+
+        // Listen for visitor count changes
+        visitorCountRef.on('value', (snap) => {
+          const count = snap.val() || 0;
+          document.getElementById('visitor-count').textContent = count;
+        });
+      }
+
+      // Function to load testimonials
+      async function loadTestimonials() {
+        const testimonialContainer = document.querySelector(
+          "#testimonials .grid"
+        );
+        try {
+          const snapshot = await db.collection("testimonials").get();
+          testimonialContainer.innerHTML = ""; // Clear existing testimonials
+
+          snapshot.forEach((doc) => {
+            const data = doc.data();
+            testimonialContainer.innerHTML += `
+          <div class="bg-white p-6 rounded-lg shadow-md text-left">
+            <p class="text-gray-700 italic">"${data.content}"</p>
+            <h4 class="mt-4 font-semibold text-blue-600">- ${data.name}, ${data.role}</h4>
+          </div>
+        `;
+          });
+        } catch (error) {
+          console.error("Error loading testimonials:", error);
+        }
+      }
+
+      // Function to load rules
+      async function loadRules() {
+        const rulesContainer = document.querySelector("#rules .list-disc");
+        try {
+          const snapshot = await db.collection("rules").get();
+          rulesContainer.innerHTML = ""; // Clear existing rules
+
+          snapshot.forEach((doc) => {
+            const data = doc.data();
+            rulesContainer.innerHTML += `
+          <li>
+            ${data.icon} <strong>${data.title}</strong> ${data.description}
+          </li>
+        `;
+          });
+        } catch (error) {
+          console.error("Error loading rules:", error);
+        }
+      }
+
+      // Function to load about section
+      async function loadAbout() {
+        try {
+          const doc = await db.collection("about").doc("main").get();
+
+          if (doc.exists) {
+            const data = doc.data();
+            const aboutContent = document.querySelector("#tentang");
+            aboutContent.textContent = data.content; // Just load the content as plain text
+          }
+        } catch (error) {
+          console.error("Error loading about section:", error);
+        }
+      }
+
+      async function loadVideo() {
+          try {
+              const doc = await db.collection('settings').doc('video').get();
+              if (doc.exists) {
+                document.getElementById('testimonialVideo').src = doc.data().url;
+              }
+          } catch (error) {
+              console.error('Error loading video URL:', error);
+          }
+      }
+
+      // Load all dynamic content when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        loadTestimonials();
+        loadRules();
+        loadAbout();
+        loadVideo();
+        initializeVisitorCounter();
+      });
+    </script>
+  </body>
+</html>
